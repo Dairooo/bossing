@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            color: #333;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .flower {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle at center, pink, purple);
+            border-radius: 50%;
+            animation: float 4s infinite ease-in-out;
+            opacity: 0.8;
+        }
+        @keyframes float {
+            0% {
+                transform: scale(0.5) translateY(0);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1.2) translateY(-100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <p>Hi Seyn,</p>
+        <p>Ik that ur prolly gonna ignore this, but pls don't. I've coded something that I'll say to you. I love you, I'll always will. Ang sad na nagkaroon us ng problems. But, ig whatever happens, happens for a reason. But no matter what, pls always choose urself before others, don't forget eat and sleep at the right time. Wag mo ulitin yung 12 midnight kana nag dinner. I'll always support u in anything that happens to u, anything that u decide to do po. Ingat ka palagi, my best kags!!!</p>
+        <p>Truly yours,<br> Nathan</p>
+    </div>
+
+    <script>
+        // Function to create flower elements
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.style.left = `${Math.random() * 100}vw`;
+            flower.style.animationDuration = `${3 + Math.random() * 2}s`;
+            flower.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+            document.body.appendChild(flower);
+
+            // Remove flower after animation completes
+            setTimeout(() => {
+                flower.remove();
+            }, 4000);
+        }
+
+        // Create a flower every 500ms
+        setInterval(createFlower, 500);
+    </script>
